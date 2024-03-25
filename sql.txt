@@ -1,0 +1,12 @@
+SELECT am.name AS mark_name, COUNT(amod.id) AS model_count
+FROM UNICUS_AutoMarks AS am
+JOIN UNICUS_AutoModels AS amod ON am.id = amod.markId
+GROUP BY am.id
+ORDER BY model_count DESC
+LIMIT 1;
+
+SELECT ac.name AS category_name
+FROM UNICUS_AutoCategories AS ac
+JOIN UNICUS_AutoMarks AS am ON ac.id = am.categoryId
+JOIN UNICUS_AutoModels AS amod ON am.id = amod.markId
+WHERE am.name = 'CITROEN' AND amod.name = 'C5';
